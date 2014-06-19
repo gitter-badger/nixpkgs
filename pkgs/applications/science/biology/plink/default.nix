@@ -14,11 +14,11 @@ stdenv.mkDerivation {
     mkdir -p $out/bin
     cp plink $out/bin
   '';
-  
+
   meta = {
     description = "Whole genome association toolkit";
     homepage = "http://pngu.mgh.harvard.edu/~purcell/plink/";
-    license = "GNUv2";
+    license = stdenv.lib.licenses.gpl2;
     platforms = stdenv.lib.platforms.all;
   };
 }
