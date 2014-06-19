@@ -47,7 +47,7 @@ stdenv.mkDerivation rec {
   '';
 
   buildPhase = "true";
-  
+
   installPhase = ''
     python ./setup.py install --prefix="$out" --use-python-path --verbose
   '';
@@ -55,6 +55,6 @@ stdenv.mkDerivation rec {
   meta = {
     description = "A program to convert DocBook to DVI, PostScript or PDF via LaTeX or ConTeXt";
     homepage = http://dblatex.sourceforge.net/;
-    license = "GPL";
+    license = stdenv.lib.licenses.gpl2Plus;
   };
 }

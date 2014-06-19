@@ -6,7 +6,7 @@
 
 stdenv.mkDerivation rec {
   name = "docbook2X-0.8.8";
-  
+
   src = fetchurl {
     url = "mirror://sourceforge/docbook2x/${name}.tar.gz";
     sha256 = "0ifwzk99rzjws0ixzimbvs83x6cxqk1xzmg84wa1p7bs6rypaxs0";
@@ -52,7 +52,7 @@ stdenv.mkDerivation rec {
       into the traditional Unix man page format and the GNU Texinfo
       format.
     '';
-    license = "MIT-style";
+    license = stdenv.lib.licenses.mit;
     homepage = http://docbook2x.sourceforge.net/;
   };
 }
