@@ -25,12 +25,12 @@ stdenv.mkDerivation rec {
     longDescription = ''
       Advanced Strategic Command is a free, turn based strategy game. It is
       designed in the tradition of the Battle Isle series from Bluebyte and is
-      currently available for Windows and Linux. 
+      currently available for Windows and Linux.
     '';
 
     homepage = http://www.asc-hq.org/;
 
-    license = "GPLv2+";
+    license = stdenv.lib.licenses.gpl2Plus;
 
     maintainers = with stdenv.lib.maintainers; [viric];
     platforms = with stdenv.lib.platforms; linux;

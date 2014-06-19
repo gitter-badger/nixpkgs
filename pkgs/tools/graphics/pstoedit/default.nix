@@ -10,10 +10,10 @@ stdenv.mkDerivation {
 
   buildInputs = [ pkgconfig ghostscript gd zlib plotutils ];
 
-  meta = { 
+  meta = {
     description = "translates PostScript and PDF graphics into other vector formats";
     homepage = http://www.helga-glunz.homepage.t-online.de/pstoedit;
-    license = "GPLv2";
+    license = stdenv.lib.licenses.gpl2;
     maintainers = [ stdenv.lib.maintainers.marcweber ];
     platforms = stdenv.lib.platforms.linux;
   };

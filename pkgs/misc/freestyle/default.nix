@@ -10,8 +10,8 @@ stdenv.mkDerivation {
  };
 
   buildInputs = [ qt4 libpng lib3ds freeglut libXi libQGLViewer swig ];
-  
-  inherit python freeglut libQGLViewer lib3ds; # if you want to use another adopt patch and Config.pri 
+
+  inherit python freeglut libQGLViewer lib3ds; # if you want to use another adopt patch and Config.pri
 
   buildPhase = ''
     export PYTHON_VERSION=2.5
@@ -45,9 +45,9 @@ stdenv.mkDerivation {
 
   installPhase = ":";
 
-  meta = { 
+  meta = {
     description = "Non-Photorealistic Line Drawing rendering from 3D scenes";
     homepage = http://freestyle.sourceforge.net;
-    license = "GPL2";
+    license = stdenv.lib.licenses.gpl2;
   };
 }

@@ -3,7 +3,7 @@
 
 stdenv.mkDerivation {
   name = "oilrush";
-  src = 
+  src =
   let
     url = config.oilrush.url or null;
     sha256 = config.oilrush.sha256 or null;
@@ -64,10 +64,10 @@ stdenv.mkDerivation {
     longDescription = ''
       Oil Rush is a real-time naval strategy game based on group control. It
       combines the strategic challenge of a classical RTS with the sheer fun
-      of Tower Defense. 
+      of Tower Defense.
     '';
     homepage = http://oilrush-game.com/;
-    license = "unfree";
+    license = stdenv.lib.licenses.unfree;
     #maintainers = with stdenv.lib.maintainers; [ astsmtl ];
     platforms = stdenv.lib.platforms.linux;
     hydraPlatforms = [];

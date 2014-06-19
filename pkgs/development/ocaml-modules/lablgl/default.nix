@@ -9,7 +9,7 @@ in
 stdenv.mkDerivation {
   name = "${pname}-${version}";
 
-  src = fetchurl { 
+  src = fetchurl {
     url = "http://wwwfun.kurims.kyoto-u.ac.jp/soft/lsl/dist/lablgl-${version}.tar.gz";
     sha256 = "0qabydd219i4ak7hxgc67496qnnscpnydya2m4ijn3cpbgih7zyq";
   };
@@ -38,7 +38,7 @@ stdenv.mkDerivation {
   meta = {
     homepage = http://wwwfun.kurims.kyoto-u.ac.jp/soft/lsl/lablgl.html;
     description = "OpenGL bindings for ocaml";
-    license = "GnuGPLV2";
+    license = stdenv.lib.licenses.gpl2;
     maintainers = [ stdenv.lib.maintainers.pSub ];
   };
 }

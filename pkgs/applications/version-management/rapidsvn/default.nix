@@ -10,13 +10,13 @@ stdenv.mkDerivation {
 
   buildInputs = [ wxGTK subversion apr aprutil python ];
 
-  configureFlags = [ "--with-svn-include=${subversion}/include" 
+  configureFlags = [ "--with-svn-include=${subversion}/include"
     "--with-svn-lib=${subversion}/lib" ];
 
   meta = {
     description = "Multi-platform GUI front-end for the Subversion revision system";
     homepage = http://rapidsvn.tigris.org/;
-    license = "GPLv3+";
+    license = stdenv.lib.licenses.gpl3Plus;
     maintainers = [ stdenv.lib.maintainers.viric ];
   };
 }

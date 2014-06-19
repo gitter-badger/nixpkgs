@@ -25,12 +25,11 @@ stdenv.mkDerivation rec {
 
   preConfigure = [ ''sed -i "s@PREFIX = /usr/local@PREFIX = $out@g" config.mk'' ];
 
-  meta = { 
+  meta = {
       description = "a generic, highly customizable, and efficient menu for the X Window System";
       homepage = http://tools.suckless.org/dmenu;
-      license = "MIT";
+      license = stdenv.lib.licenses.mit;
       maintainers = with stdenv.lib.maintainers; [viric];
       platforms = with stdenv.lib.platforms; all;
   };
 }
-

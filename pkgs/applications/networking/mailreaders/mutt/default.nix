@@ -19,7 +19,7 @@ let
 in
 stdenv.mkDerivation rec {
   name = "mutt-${version}";
-  
+
   src = fetchurl {
     url = "mirror://sourceforge/mutt/${name}.tar.gz";
     sha256 = "0dzx4qk50pjfsb6cs5jahng96a52k12f7pm0sc78iqdrawg71w1s";
@@ -32,7 +32,7 @@ stdenv.mkDerivation rec {
     (if saslSupport then cyrus_sasl else null)
     (if gpgmeSupport then gpgme else null)
   ];
-  
+
   configureFlags = [
     "--with-mailpath=" "--enable-smtp"
 
@@ -55,9 +55,8 @@ stdenv.mkDerivation rec {
   meta = with stdenv.lib; {
     description = "A small but very powerful text-based mail client";
     homepage = http://www.mutt.org;
-    license = "GPLv2+";
+    license = stdenv.lib.licenses.gpl2Plus;
     platforms = platforms.unix;
     maintainers = with maintainers; [ the-kenny ];
   };
 }
-

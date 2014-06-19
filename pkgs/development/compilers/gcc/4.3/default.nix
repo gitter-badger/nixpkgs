@@ -82,7 +82,7 @@ stdenv.mkDerivation ({
     ++ optional langJava ./java-jvgenmain-link.patch
     ++ optional langVhdl ./ghdl-ortho-cflags.patch
     ++ optional langVhdl ./ghdl-runtime-o2.patch;
-    
+
   inherit noSysDirs profiledCompiler staticCompiler crossStageStatic
     binutilsCross libcCross;
   targetConfig = if cross != null then cross.config else null;
@@ -124,7 +124,7 @@ stdenv.mkDerivation ({
   NIX_EXTRA_LDFLAGS = if staticCompiler then "-static" else "";
 
   inherit gmp mpfr;
-  
+
   passthru = { inherit langC langCC langFortran langVhdl langTreelang
       enableMultilib; };
 
@@ -173,7 +173,7 @@ stdenv.mkDerivation ({
 
   meta = {
     homepage = "http://ghdl.free.fr/";
-    license = "GPLv2+";
+    license = stdenv.lib.licenses.gpl2Plus;
     description = "Complete VHDL simulator, using the GCC technology";
     maintainers = with stdenv.lib.maintainers; [viric];
     platforms = with stdenv.lib.platforms; linux;

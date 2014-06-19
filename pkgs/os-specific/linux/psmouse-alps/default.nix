@@ -29,11 +29,11 @@ stdenv.mkDerivation {
     make -C ${kernel.dev}/lib/modules/${kernel.modDirVersion}/build \
       INSTALL_MOD_PATH=$out SUBDIRS=`pwd` modules_install
   '';
-      
+
   meta = {
     description = "ALPS dlkm driver with all known touchpads";
     homepage = http://www.dahetral.com/public-download/alps-psmouse-dlkm-for-3-2-and-3-5/view;
-    license = "GPLv2";
+    license = stdenv.lib.licenses.gpl2;
     platforms = stdenv.lib.platforms.linux;
     maintainers = with stdenv.lib.maintainers; [viric];
   };

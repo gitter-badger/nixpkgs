@@ -34,8 +34,8 @@ stdenv.mkDerivation rec {
       cdrkit is not affiliated with any of these authors; it is now an
       independent project.
     '';
-    
+
     homepage = http://cdrkit.org/;
-    license = "GPLv2";
+    license = stdenv.lib.licenses.gpl2;
   };
 }

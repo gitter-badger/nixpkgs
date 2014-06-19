@@ -12,7 +12,7 @@ stdenv.mkDerivation rec {
   };
 
   buildInputs = [ libtool automake autoconf m4 pkgconfig curl mesa libXmu libXi
-    freeglut libjpeg wxGTK sqlite gtk libXScrnSaver libnotify patchelf libX11 
+    freeglut libjpeg wxGTK sqlite gtk libXScrnSaver libnotify patchelf libX11
     libxcb xcbutil
   ];
 
@@ -36,7 +36,7 @@ stdenv.mkDerivation rec {
 
     homepage = http://boinc.berkeley.edu/;
 
-    license = "LGPLv2+";
+    license = stdenv.lib.licenses.lgpl2Plus;
 
     platforms = stdenv.lib.platforms.linux;  # arbitrary choice
   };

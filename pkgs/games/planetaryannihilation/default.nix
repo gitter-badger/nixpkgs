@@ -23,7 +23,7 @@ stdenv.mkDerivation {
   };
 
   buildInputs = [ patchelf makeWrapper ];
- 
+
   installPhase = ''
     mkdir -p $out/{bin,lib}
 
@@ -35,7 +35,7 @@ stdenv.mkDerivation {
     ln -s ${systemd}/lib/libudev.so.1 $out/lib/libudev.so.0
 
     patchelf --set-interpreter "$(cat $NIX_GCC/nix-support/dynamic-linker)" "$out/PA"
-    patchelf --set-interpreter "$(cat $NIX_GCC/nix-support/dynamic-linker)" --set-rpath "${stdenv.lib.makeLibraryPath [ stdenv.gcc.gcc xlibs.libXdamage xorg.libXfixes gtk glib stdenv.glibc "$out" xlibs.libXext pango udev xlibs.libX11 xlibs.libXcomposite alsaLib atk nspr fontconfig cairo pango nss freetype gnome3.gconf gdk_pixbuf xlibs.libXrender ]}:{stdenv.gcc.gcc}/lib64:${stdenv.glibc}/lib64" "$out/host/CoherentUI_Host.bin" 
+    patchelf --set-interpreter "$(cat $NIX_GCC/nix-support/dynamic-linker)" --set-rpath "${stdenv.lib.makeLibraryPath [ stdenv.gcc.gcc xlibs.libXdamage xorg.libXfixes gtk glib stdenv.glibc "$out" xlibs.libXext pango udev xlibs.libX11 xlibs.libXcomposite alsaLib atk nspr fontconfig cairo pango nss freetype gnome3.gconf gdk_pixbuf xlibs.libXrender ]}:{stdenv.gcc.gcc}/lib64:${stdenv.glibc}/lib64" "$out/host/CoherentUI_Host.bin"
 
     wrapProgram $out/PA --prefix LD_LIBRARY_PATH : "${stdenv.lib.makeLibraryPath [ stdenv.gcc.gcc stdenv.glibc xlibs.libX11 xlibs.libXcursor gtk glib curl "$out" ]}:${stdenv.gcc.gcc}/lib64:${stdenv.glibc}/lib64"
 
@@ -47,7 +47,7 @@ stdenv.mkDerivation {
   meta = with stdenv.lib; {
     homepage = http://www.uberent.com/pa/;
     description = "next-generation RTS that takes the genre to a planetary scale";
-    license = "unfree";
+    license = stdenv.lib.licenses.unfree;
     platforms = platforms.linux;
     maintainers = [ maintainers.iElectric ];
   };

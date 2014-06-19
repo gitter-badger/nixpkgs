@@ -7,7 +7,7 @@ stdenv.mkDerivation rec {
     url = "http://radare.org/get/${name}.tar.gz";
     sha256 = "0wya1ylc6adqg4qw5fi8aspc5d1yr27x9r2vpy133qxzia9qv3mm";
   };
-  
+
   installPhase = ''
     make install PREFIX=$out
   '';
@@ -15,7 +15,7 @@ stdenv.mkDerivation rec {
   meta = {
     description = "Interactive Raw Editor";
     homepage = http://radare.org/;
-    license = "GPLv2+";
+    license = stdenv.lib.licenses.gpl2Plus;
     maintainers = with stdenv.lib.maintainers; [viric];
     platforms = with stdenv.lib.platforms; all;
   };

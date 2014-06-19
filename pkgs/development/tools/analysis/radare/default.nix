@@ -8,7 +8,7 @@ assert useX11 -> (gtk != null && vte != null && gtkdialog != null);
 assert rubyBindings -> ruby != null;
 assert pythonBindings -> python != null;
 
-let 
+let
   optional = stdenv.lib.optional;
 in
 stdenv.mkDerivation rec {
@@ -29,7 +29,7 @@ stdenv.mkDerivation rec {
   meta = {
     description = "Free advanced command line hexadecimal editor";
     homepage = http://radare.org/;
-    license = "GPLv2+";
+    license = stdenv.lib.licenses.gpl2Plus;
     maintainers = with stdenv.lib.maintainers; [viric];
     platforms = with stdenv.lib.platforms; all;
   };

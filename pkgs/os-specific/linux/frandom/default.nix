@@ -17,7 +17,7 @@ stdenv.mkDerivation rec {
       --replace "\$(shell uname -r)" "$kernelVersion" \
       --replace "/lib/modules" "${kernel.dev}/lib/modules"
   '';
- 
+
   installPhase = ''
     kernelVersion=${kernel.modDirVersion}
     ensureDir $out/lib/modules/$kernelVersion/misc
@@ -40,8 +40,7 @@ stdenv.mkDerivation rec {
   meta = {
     description = "A very fast random number generator kernel module";
     homepage = http://frandom.sourceforge.net/;
-    license = "GPLv2";
+    license = stdenv.lib.licenses.gpl2;
     maintainers = [ stdenv.lib.maintainers.bluescreen303 ];
   };
 }
-

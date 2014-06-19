@@ -19,7 +19,7 @@ stdenv.mkDerivation rec {
   '';
 
   configureFlags = [ "--with-libsodium-headers=${libsodium}/include"
-    "--with-libsodium-libs=${libsodium}/lib" 
+    "--with-libsodium-libs=${libsodium}/lib"
     "--enable-ntox" ];
 
   buildInputs = [ autoconf libtool automake libsodium ncurses libconfig
@@ -29,7 +29,7 @@ stdenv.mkDerivation rec {
 
   meta = {
     description = "P2P FOSS instant messaging application aimed to replace Skype with crypto";
-    license = "GPLv3+";
+    license = stdenv.lib.licenses.gpl3Plus;
     maintainers = with stdenv.lib.maintainers; [ viric ];
     platforms = stdenv.lib.platforms.all;
   };

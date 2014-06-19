@@ -24,9 +24,9 @@ stdenv.mkDerivation {
     url = http://hydra.nixos.org/build/11407191/download/1/dysnomia-0.3pre09cc08f5ffc737d988923bb7329a7ec711badd82.tar.gz;
     sha256 = "1i7yb299bq1z7cy4sk83m5faahj8inh73xn5bi6jcv492zv3kgwz";
   };
-  
+
   preConfigure = if enableEjabberdDump then "export PATH=$PATH:${ejabberd}/sbin" else "";
-  
+
   configureFlags = ''
      ${if enableApacheWebApplication then "--with-apache" else "--without-apache"}
      ${if enableAxis2WebService then "--with-axis2" else "--without-axis2"}
@@ -37,7 +37,7 @@ stdenv.mkDerivation {
      ${if enableTomcatWebApplication then "--with-tomcat=${catalinaBaseDir}" else "--without-tomcat"}
      ${if enableMongoDatabase then "--with-mongodb" else "--without-mongodb"}
    '';
-  
+
   buildInputs = [ getopt ]
     ++ stdenv.lib.optional enableEjabberdDump ejabberd
     ++ stdenv.lib.optional enableMySQLDatabase mysql
@@ -47,7 +47,7 @@ stdenv.mkDerivation {
 
   meta = {
     description = "Automated deployment of mutable components and services for Disnix";
-    license = "MIT";
+    license = stdenv.lib.licenses.mit;
     maintainers = [ stdenv.lib.maintainers.sander ];
   };
 }

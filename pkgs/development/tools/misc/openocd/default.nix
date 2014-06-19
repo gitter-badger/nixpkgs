@@ -36,7 +36,7 @@ stdenv.mkDerivation rec {
          of embedded systems using the GNU GDB program.
       '';
 
-    license = "GPLv2+";
+    license = stdenv.lib.licenses.gpl2Plus;
     maintainers = with stdenv.lib.maintainers; [ viric bjornfor ];
     platforms = with stdenv.lib.platforms; linux;
   };

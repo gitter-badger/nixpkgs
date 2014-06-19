@@ -17,31 +17,31 @@ stdenv.mkDerivation {
     glibc
     glib
     stdenv.gcc.gcc
-    libSM 
-    libICE 
-    libXi 
+    libSM
+    libICE
+    libXi
     libXv
     mesa
-    libXrender 
-    libXrandr 
-    libXfixes 
-    libXcursor 
-    libXinerama 
-    freetype 
-    libXext 
-    libX11 
+    libXrender
+    libXrandr
+    libXfixes
+    libXcursor
+    libXinerama
+    freetype
+    libXext
+    libX11
     qt4
     zlib
     fontconfig
   ];
 
   phases = "unpackPhase installPhase";
-  
+
   unpackPhase = ''
     bash $src --noexec --target unpacked
     cd unpacked
   '';
-  
+
   installPhase =''
     mkdir -p $out/{opt/googleearth/,bin};
     tar xf googleearth-data.tar -C $out/opt/googleearth
@@ -58,7 +58,7 @@ stdenv.mkDerivation {
     for i in $nativeBuildInputs; do
       fullPath=$fullPath:$i/lib
     done
-          
+
     patchelf --interpreter "$(cat $NIX_GCC/nix-support/dynamic-linker)" \
       --set-rpath $fullPath \
       $out/opt/googleearth/googleearth-bin
@@ -71,7 +71,7 @@ stdenv.mkDerivation {
   meta = {
     description = "A world sphere viewer";
     homepage = http://earth.google.com;
-    license = "unfree";
+    license = stdenv.lib.licenses.unfree;
     maintainers = [ stdenv.lib.maintainers.viric ];
   };
 }

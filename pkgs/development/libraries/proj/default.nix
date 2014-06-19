@@ -8,9 +8,9 @@ stdenv.mkDerivation {
     sha256 = "1d2qz0vgp13hkfgaz7hkblhb9w2fh2blbjqz73xdinwc08cmflqv";
   };
 
-  meta = { 
+  meta = {
     description = "Cartographic Projections Library";
     homepage = http://proj.maptools.org;
-    license = "MIT";
+    license = stdenv.lib.licenses.mit;
   };
 }

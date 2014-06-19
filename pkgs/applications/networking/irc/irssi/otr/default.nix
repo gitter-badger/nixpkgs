@@ -6,7 +6,7 @@ in
 with stdenv.lib;
 stdenv.mkDerivation rec {
   name = "irssi-otr-20131007-${rev}";
-  
+
   src = fetchurl {
     url = "https://github.com/cryptodotis/irssi-otr/tarball/${rev}";
     name = "${name}.tar.gz";
@@ -22,9 +22,9 @@ stdenv.mkDerivation rec {
   preConfigure = "sh ./bootstrap";
 
   buildInputs = [ libotr automake autoconf libtool glib pkgconfig irssi ];
-  
+
   meta = {
     homepage = https://github.com/cryptodotis/irssi-otr;
-    license = "GPLv2+";
+    license = stdenv.lib.licenses.gpl2Plus;
   };
 }

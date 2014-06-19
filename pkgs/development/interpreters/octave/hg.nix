@@ -6,10 +6,10 @@ let commonBuildInputs = [gfortran readline ncurses perl glibc qhull libX11 texin
 stdenv.mkDerivation ({
   NIX_LDFLAGS = "-lpthread";
   configureFlags = "--enable-readline --enable-dl";
-  meta = { 
+  meta = {
       description = "High-level interactive language for numerical computations";
       homepage = http://www.octave.org;
-      license = "GPL-3";
+      license = stdenv.lib.licenses.gpl3;
     };
 } // (
   if config.octave.devVersion or false then {

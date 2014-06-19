@@ -26,12 +26,12 @@ stdenv.mkDerivation rec {
     longDescription = ''
       Gradle is a build system which offers you ease, power and freedom.
       You can choose the balance for yourself. It has powerful multi-project
-      build support. It has a layer on top of Ivy that provides a 
+      build support. It has a layer on top of Ivy that provides a
       build-by-convention integration for Ivy. It gives you always the choice
-      between the flexibility of Ant and the convenience of a 
+      between the flexibility of Ant and the convenience of a
       build-by-convention behavior.
     '';
     homepage = http://www.gradle.org/;
-    license = "ASL2.0";
+    license = stdenv.lib.licenses.asl20;
   };
 }

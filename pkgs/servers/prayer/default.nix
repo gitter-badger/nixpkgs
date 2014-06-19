@@ -6,7 +6,7 @@ let
 in
 stdenv.mkDerivation rec {
   name = "prayer-1.3.5";
-  
+
   src = fetchurl {
     url = "ftp://ftp.csx.cam.ac.uk/pub/software/email/prayer/${name}.tar.gz";
     sha256 = "135fjbxjn385b6cjys6qhbwfw61mdcl2akkll4jfpdzfvhbxlyda";
@@ -31,6 +31,6 @@ stdenv.mkDerivation rec {
   meta = {
     homepage = http://www-uxsup.csx.cam.ac.uk/~dpc22/prayer/;
     description = "Yet another Webmail interface for IMAP servers on Unix systems written in C";
-    license = "GPLv2+";
+    license = stdenv.lib.licenses.gpl2Plus;
   };
 }

@@ -17,7 +17,7 @@ stdenv.mkDerivation rec {
   postInstall = ''
     sed -i -e 's,"SDL.h",<SDL2/SDL.h>,' \
       $out/include/SDL2/*.h
-    
+
     ln -s $out/include/SDL2/SDL2_framerate.h $out/include/SDL2/SDL_framerate.h;
     ln -s $out/include/SDL2/SDL2_gfxPrimitives.h $out/include/SDL2/SDL_gfxPrimitives.h;
     ln -s $out/include/SDL2/SDL2_rotozoom.h $out/include/SDL2/SDL_rotozoom.h;
@@ -46,7 +46,7 @@ stdenv.mkDerivation rec {
        '';
 
     homepage = https://sourceforge.net/projects/sdlgfx/;
-    license = "LGPLv2+";
+    license = stdenv.lib.licenses.lgpl2Plus;
 
     maintainers = [ stdenv.lib.maintainers.bjg ];
     platforms = stdenv.lib.platforms.linux;

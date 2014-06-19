@@ -14,7 +14,7 @@ stdenv.mkDerivation rec {
 
   prePatch = ''
     sed -i s,/usr/bin/perl,${perl}/bin/perl, doc/eperl
-    sed -i s,/usr/local,$out, SConstruct 
+    sed -i s,/usr/local,$out, SConstruct
   '';
 
   patches = [ ./build.patch ];
@@ -29,7 +29,7 @@ stdenv.mkDerivation rec {
   meta = {
     description = "Cross platform image and hierarchical vector viewer based";
     homepage = http://giv.sourceforge.net/giv/;
-    license = "GPLv2+";
+    license = stdenv.lib.licenses.gpl2Plus;
     maintainers = with stdenv.lib.maintainers; [viric];
     platforms = with stdenv.lib.platforms; linux;
   };

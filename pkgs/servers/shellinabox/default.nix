@@ -12,7 +12,7 @@ stdenv.mkDerivation {
 
   patches = [ ./shellinabox-minus.patch ];
 
-  # Disable GSSAPIAuthentication errors as well as correct hardcoded path. Take /usr/games's place. 
+  # Disable GSSAPIAuthentication errors as well as correct hardcoded path. Take /usr/games's place.
   preConfigure = ''
     substituteInPlace ./shellinabox/service.c --replace "-oGSSAPIAuthentication=no" ""
     substituteInPlace ./shellinabox/launcher.c --replace "/usr/games" "${openssh}/bin"
@@ -22,7 +22,7 @@ stdenv.mkDerivation {
   meta = {
     homepage = https://code.google.com/p/shellinabox;
     description = "Web based AJAX terminal emulator";
-    license = "GPLv2";
+    license = stdenv.lib.licenses.gpl2;
     maintainers = [stdenv.lib.maintainers.tomberek];
     platforms = stdenv.lib.platforms.linux;
   };

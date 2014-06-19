@@ -14,10 +14,10 @@ stdenv.mkDerivation rec {
       sed -e '/extern FILE [*]output/a#endif' -i src/indent.h
       sed -e '1i#define OUTPUT_DEFINED_ELSEWHERE 1' -i src/output.c
     '';
-    
+
   meta = {
     homepage = http://www.gnu.org/software/indent/;
     description = "A source code reformatter";
-    license = "GPLv3+";
+    license = stdenv.lib.licenses.gpl3Plus;
   };
 }

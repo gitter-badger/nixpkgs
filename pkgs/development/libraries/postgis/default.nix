@@ -29,7 +29,7 @@ args@{fetchurl, composableDerivation, stdenv, perl, libxml2, postgresql, geos, p
 
       CREATE FUNCTION [...]
               AS '[..]liblwgeom', 'lwhistogram2d_in' LANGUAGE 'C' IMMUTABLE STRICT; -- WITH (isstrict);
-    
+
    where liblwgeom is the shared library.
    Postgis < 1.5 used absolute paths, in NixOS $libdir is always used.
 
@@ -107,7 +107,7 @@ let
     meta = {
       description = "Geographic Objects for PostgreSQL";
       homepage = "http://postgis.refractions.net";
-      license = "GPLv2";
+      license = stdenv.lib.licenses.gpl2;
       maintainers = [stdenv.lib.maintainers.marcweber];
       platforms = stdenv.lib.platforms.linux;
     };
@@ -148,4 +148,3 @@ in rec {
   });
 
 }
-

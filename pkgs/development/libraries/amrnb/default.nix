@@ -17,7 +17,7 @@ stdenv.mkDerivation {
   configureFlags = [ "--cache-file=config.cache" "--with-downloader=true" ];
 
   postConfigure = ''
-    cp $srcAmr 26104-b00.zip 
+    cp $srcAmr 26104-b00.zip
   '';
 
   meta = {
@@ -26,6 +26,6 @@ stdenv.mkDerivation {
     # The wrapper code is free, but not the libraries from 3gpp.
     # It's a source code reference implementation with patents and licenses on
     # some countries, not redistributable.
-    license = "unfree";
+    license = stdenv.lib.licenses.unfree;
   };
 }

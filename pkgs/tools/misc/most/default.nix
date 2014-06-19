@@ -14,7 +14,7 @@ stdenv.mkDerivation {
       -e "s|/bin/cp|cp|"  \
       -e "s|/bin/rm|rm|"
   '';
-  
+
   configureFlags = "--with-slang=${slang}";
 
   buildInputs = [ slang ncurses ];
@@ -26,7 +26,7 @@ stdenv.mkDerivation {
       windows and can scroll left and right. Why settle for less?
     '';
     homepage = http://www.jedsoft.org/most/index.html;
-    license = "GPLv2";
+    license = stdenv.lib.licenses.gpl2;
     platforms = stdenv.lib.platforms.gnu; # random choice
   };
 }

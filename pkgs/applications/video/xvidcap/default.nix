@@ -3,7 +3,7 @@
 
 stdenv.mkDerivation {
   name = "xvidcap-1.1.7";
-  
+
   src = fetchurl {
     url = mirror://sourceforge/xvidcap/xvidcap-1.1.7.tar.gz;
     sha256 = "0p8rhpyhxgy37crf1xk1046z4p663jg7ww776jw92pld3s024ihm";
@@ -15,9 +15,9 @@ stdenv.mkDerivation {
   # !!! don't know why this is necessary
   NIX_LDFLAGS = "-lXext -lX11 -lz -lgcc_s";
 
-  meta = { 
+  meta = {
     description = "screencast video catpuring tool";
     homepage = http://xvidcap.sourceforge.net/;
-    license = "GPLv2";
+    license = stdenv.lib.licenses.gpl2;
   };
 }

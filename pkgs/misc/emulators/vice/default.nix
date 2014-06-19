@@ -11,7 +11,7 @@ stdenv.mkDerivation rec {
   buildInputs = [ perl gettext libpng giflib libjpeg alsaLib readline mesa
                   pkgconfig gtk SDL autoconf automake ];
   configureFlags = "--with-sdl --enable-fullscreen --enable-gnomeui";
-  
+
   desktopItem = makeDesktopItem {
     name = "vice";
     exec = "x64";
@@ -23,22 +23,22 @@ stdenv.mkDerivation rec {
 
   patchPhase = ''
     # Disable font-cache update
-    
+
     sed -i -e "s|install: install-data-am|install-no: install-data-am|" data/fonts/Makefile.am
     autoreconf -f -i
   '';
-  
+
   NIX_LDFLAGS = "-lX11 -L${libX11}/lib";
-  
+
   postInstall = ''
     mkdir -p $out/share/applications
     cp ${desktopItem}/share/applications/* $out/share/applications
   '';
-  
+
   meta = {
     description = "Commodore 64, 128 and other emulators";
     homepage = http://www.viceteam.org;
-    license = "GPLv2+";
+    license = stdenv.lib.licenses.gpl2Plus;
     maintainers = [ stdenv.lib.maintainers.sander ];
   };
 }

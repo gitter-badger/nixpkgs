@@ -63,8 +63,8 @@ stdenv.mkDerivation {
     sha256 = "020s05k0ma83rq2kfs8x474pqicaqp9spar81qc816ddfrnh8k8i";
   };
 
-  buildInputs = [ gtk libglade libxml2 libraw1394 libsamplerate libdv 
-      pkgconfig perl perlXMLParser libavc1394 libiec61883 intltool libXv gettext libX11 glib cairo ffmpeg ]; # TODOoptional packages 
+  buildInputs = [ gtk libglade libxml2 libraw1394 libsamplerate libdv
+      pkgconfig perl perlXMLParser libavc1394 libiec61883 intltool libXv gettext libX11 glib cairo ffmpeg ]; # TODOoptional packages
 
   configureFlags = "--enable-local-ffmpeg=no";
   #preConfigure = "
@@ -84,9 +84,9 @@ stdenv.mkDerivation {
   ";
 
 
-  meta = { 
+  meta = {
       description = "Kino is a non-linear DV editor for GNU/Linux";
       homepage = http://www.kinodv.org/;
-      license = "GPL2";
+      license = stdenv.lib.licenses.gpl2;
   };
 }

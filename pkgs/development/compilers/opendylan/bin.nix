@@ -22,11 +22,11 @@ stdenv.mkDerivation {
     tar --strip-components=1 -xjf "$src" -C "$out"
 
     interpreter="$(cat "$NIX_GCC"/nix-support/dynamic-linker)"
-    for a in "$out"/bin/*; do 
+    for a in "$out"/bin/*; do
       patchelf --set-interpreter "$interpreter" "$a"
       patchelf --set-rpath "$out/lib:${boehmgc}/lib" "$a"
     done
-    for a in "$out"/lib/*.so; do 
+    for a in "$out"/lib/*.so; do
       patchelf --set-rpath "$out/lib:${boehmgc}/lib" "$a"
     done
     sed -i -e "s|\-lgc|\-L${boehmgc}\/lib -lgc|" $out/lib/config.jam
@@ -36,6 +36,6 @@ stdenv.mkDerivation {
   meta = {
     homepage = http://opendylan.org;
     description = "Dylan is a multi-paradigm functional and object-oriented programming language.";
-    license = "MIT";
+    license = stdenv.lib.licenses.mit;
   };
 }

@@ -19,7 +19,7 @@ stdenv.mkDerivation {
   configurePhase = ''
     qmake PREFIX=$out
   '';
-  
+
   crossAttrs = {
     # cmakeFlags = "-DWIN32=1 -DCMAKE_SYSTEM_NAME=Windows -DCMAKE_RC_COMPILER=${stdenv.cross.config}-windres";
     QTDIR = qt48.crossDrv;
@@ -31,6 +31,6 @@ stdenv.mkDerivation {
   meta = {
     homepage = http://qt-project.org/wiki/jom;
     description = "Clone of nmake supporting multiple independent commands in parallel";
-    license = "GPLv2+"; # Explicitly, GPLv2 or GPLv3, but not later.
+    license = stdenv.lib.licenses.gpl2Plus; # Explicitly, GPLv2 or GPLv3, but not later.
   };
 }

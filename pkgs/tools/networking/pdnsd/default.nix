@@ -12,10 +12,10 @@ stdenv.mkDerivation rec {
     sed -i 's/.*(cachedir).*/:/' Makefile.in
   '';
 
-  meta = { 
+  meta = {
     description = "Permanent DNS caching";
     homepage = http://www.phys.uu.nl/~rombouts/pdnsd.html;
-    license = "GPLv3+";
+    license = stdenv.lib.licenses.gpl3Plus;
     platforms = stdenv.lib.platforms.unix;
     maintainers = with stdenv.lib.maintainers; [viric];
   };

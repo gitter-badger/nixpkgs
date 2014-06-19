@@ -1,4 +1,4 @@
-{stdenv, fetchurl, perl}: 
+{stdenv, fetchurl, perl}:
 
 stdenv.mkDerivation rec {
   name = "yacas-1.2.2";
@@ -19,7 +19,7 @@ stdenv.mkDerivation rec {
     preConfigure = ''
       ./configure
       pushd src
-      make mkfastprimes 
+      make mkfastprimes
       cp mkfastprimes ../..
       popd
       pushd manmake
@@ -32,10 +32,10 @@ stdenv.mkDerivation rec {
     '';
   };
 
-  meta = { 
+  meta = {
       description = "Easy to use, general purpose Computer Algebra System";
       homepage = http://yacas.sourceforge.net/;
-      license = "GPLv2+";
+      license = stdenv.lib.licenses.gpl2Plus;
       maintainers = with stdenv.lib.maintainers; [viric];
       platforms = with stdenv.lib.platforms; all;
   };

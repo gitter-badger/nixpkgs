@@ -1,6 +1,6 @@
 { stdenv, fetchurl, glib, pkgconfig, mesa, libX11, libXext, libXfixes
-, libXdamage, libXcomposite, libXi, cogl, pango, atk, json_glib, 
-gobjectIntrospection 
+, libXdamage, libXcomposite, libXi, cogl, pango, atk, json_glib,
+gobjectIntrospection
 }:
 
 let
@@ -43,7 +43,7 @@ stdenv.mkDerivation rec {
          specific needs.
       '';
 
-    license = "LGPLv2+";
+    license = stdenv.lib.licenses.lgpl2Plus;
     homepage = http://www.clutter-project.org/;
 
     maintainers = with stdenv.lib.maintainers; [ urkud ];

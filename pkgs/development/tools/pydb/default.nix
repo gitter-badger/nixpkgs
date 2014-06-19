@@ -15,9 +15,9 @@ stdenv.mkDerivation {
     configureFlags="$configureFlags --with-python=${python}/bin/python --with-site-packages=$p"
   '';
 
-  meta = { 
+  meta = {
     description = "Python debugger with GDB-like commands and Emacs bindings";
     homepage = http://bashdb.sourceforge.net/pydb/;
-    license = "GPLv3";
+    license = stdenv.lib.licenses.gpl3;
   };
 }

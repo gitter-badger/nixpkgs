@@ -6,7 +6,7 @@
 
 let
   libinf = libinfinity.override { gtkWidgets = true; inherit avahiSupport; };
-  
+
 in stdenv.mkDerivation rec {
 
   name = "gobby-0.4.94";
@@ -17,14 +17,14 @@ in stdenv.mkDerivation rec {
 
   buildInputs = [ pkgconfig gtkmm gsasl gtksourceview libxmlxx libinf intltool ]
     ++ stdenv.lib.optional gnomeSupport gnome_vfs;
-  
+
   configureFlags = ''
   '';
 
   meta = with stdenv.lib; {
     homepage = http://gobby.0x539.de/;
     description = "A GTK-based collaborative editor supporting multiple documents in one session and a multi-user chat";
-    license = "GPLv2+";
+    license = stdenv.lib.licenses.gpl2Plus;
     maintainers = [ maintainers.phreedom ];
     platforms = platforms.all;
   };

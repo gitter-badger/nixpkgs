@@ -14,7 +14,7 @@ let
 
   meta = {
     homepage = http://sflphone.org/;
-    license = "GPLv3+";
+    license = stdenv.lib.licenses.gpl3Plus;
     description = "Free software enterprise-class softphone for GNU/Linux";
     platforms = with stdenv.lib.platforms; linux;
     maintainers = with stdenv.lib.maintainers; [viric];
@@ -43,7 +43,7 @@ rec {
     configureFlags = "--with-expat --with-expat-inc=${expat}/include " +
       "--with-expat-lib=-lexpat --with-opus ";
 
-    buildInputs = [ libyaml alsaLib openssl libuuid pkgconfig pulseaudio libsamplerate 
+    buildInputs = [ libyaml alsaLib openssl libuuid pkgconfig pulseaudio libsamplerate
       commoncpp2 ccrtp libzrtpcpp dbus dbus_cplusplus expat pcre gsm speex ilbc libopus
       autoconf automake libtool gettext perl ];
   };

@@ -7,7 +7,7 @@ stdenv.mkDerivation {
     sha256 = "1gb2d0qvvq7xankz7l7ymbr3qprwk9bifpy4hlgw0sq4i6a55ypd";
   };
   buildInputs = [ jdk unzip ];
-  buildPhase = 
+  buildPhase =
     ''
       cd source
       javac $(find . -name \*.java)
@@ -20,7 +20,7 @@ stdenv.mkDerivation {
     '';
   meta = {
     description = "GeoIP Java API";
-    license = "LGPL2.1+";
+    license = stdenv.lib.licenses.lgpl21Plus;
     maintainers = [ stdenv.lib.maintainers.sander ];
   };
 }

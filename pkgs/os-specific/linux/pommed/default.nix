@@ -1,4 +1,4 @@
-{ 
+{
   stdenv
 , fetchurl
 , pciutils
@@ -17,7 +17,7 @@ let
   build_flags_patch = fetchurl {
     url = http://patch-tracker.debian.org/patch/series/dl/pommed/1.39~dfsg-2/build_flags.patch;
     sha256 = "109n5v0m91fqf8vqnpqg1zw8mk8fi9pkzqsfrmlavalg4xz49x9j";
-  }; 
+  };
 
 in
 
@@ -74,6 +74,6 @@ stdenv.mkDerivation rec {
   meta = {
     description = "A tool to handle hotkeys on Apple laptop keyboards";
     homepage = http://www.technologeek.org/projects/pommed/index.html;
-    license = "gplv2";
+    license = stdenv.lib.licenses.gpl2;
   };
 }

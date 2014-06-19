@@ -21,7 +21,7 @@ stdenv.mkDerivation rec {
     sha256 = "8f5a14587beccdd3752f9e430e56c6ea2d393dddb7843bfc17029e1a309045bb";
   };
 
-  buildInputs = [ readline zlib libgpgerror npth libgcrypt libassuan libksba 
+  buildInputs = [ readline zlib libgpgerror npth libgcrypt libassuan libksba
                   autoconf automake transfig ghostscript texinfo ]
     ++ stdenv.lib.optional useLdap openldap
     ++ stdenv.lib.optional useBzip2 bzip2
@@ -52,6 +52,6 @@ stdenv.mkDerivation rec {
 
     homepage = http://gnupg.org/;
 
-    license = "GPLv3+";
+    license = stdenv.lib.licenses.gpl3Plus;
   };
 }

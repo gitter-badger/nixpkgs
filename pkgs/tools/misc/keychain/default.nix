@@ -27,9 +27,9 @@ stdenv.mkDerivation {
       --prefix PATH ":" "${procps}/bin"
   '';
 
-  meta = { 
+  meta = {
     description = "Keychain management tool";
     homepage = "http://www.gentoo.org/proj/en/keychain/";
-    license = "GPL2";
+    license = stdenv.lib.licenses.gpl2;
   };
 }

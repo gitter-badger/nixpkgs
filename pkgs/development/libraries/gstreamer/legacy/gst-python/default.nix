@@ -18,13 +18,12 @@ stdenv.mkDerivation rec {
     ;
 
   propagatedBuildInputs = [ gstreamer python ];
- 
+
   meta = {
     homepage = http://gstreamer.freedesktop.org;
 
     description = "Python bindings for GStreamer";
 
-    license = "LGPLv2+";
+    license = stdenv.lib.licenses.lgpl2Plus;
   };
 }
-

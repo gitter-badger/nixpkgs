@@ -9,7 +9,7 @@ let
         url = "http://tesseract-ocr.googlecode.com/files/tesseract-ocr-${majVersion}.${lang}.tar.gz";
         inherit sha256;
       };
-    in 
+    in
       "tar xfvz ${src} -C $out/share/ --strip=1";
 
   extraLanguages = ''
@@ -44,7 +44,7 @@ stdenv.mkDerivation rec {
   meta = {
     description = "OCR engine";
     homepage = http://code.google.com/p/tesseract-ocr/;
-    license = "Apache2.0";
+    license = stdenv.lib.licenses.asl20;
     maintainers = with stdenv.lib.maintainers; [viric];
     platforms = with stdenv.lib.platforms; linux;
   };

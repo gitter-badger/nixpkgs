@@ -11,7 +11,7 @@ stdenv.mkDerivation rec {
     url    = "mirror://gnome/sources/gstreamermm/${ver_maj}/gstreamermm-${ver_maj}.${ver_min}.tar.xz";
     sha256 = "12b5f377363594a69cb79f2f5cd0a8b1813ca6553680c3216e6354cfd682ebc6";
   };
- 
+
   doCheck = false; # Tests require pulseaudio in /homeless-shelter
 
   propagatedBuildInputs = [
@@ -23,7 +23,7 @@ stdenv.mkDerivation rec {
   meta = {
     description = "C++ bindings for the GStreamer streaming multimedia library";
     homepage = http://www.gtkmm.org/;
-    license = "LGPLv2+";
+    license = stdenv.lib.licenses.lgpl2Plus;
     maintainers = "Philip Lykke Carlsen <plcplc@gmail.com>";
     platforms = stdenv.lib.platforms.linux;
   };

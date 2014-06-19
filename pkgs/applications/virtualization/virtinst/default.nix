@@ -17,12 +17,12 @@ stdenv.mkDerivation rec {
       paste_deploy m2crypto ipy boto_1_9 twisted sqlalchemy_migrate
       distutils_extra simplejson readline glance cheetah lockfile httplib2
       # !!! should libvirt be a build-time dependency?  Note that
-      # libxml2Python is a dependency of libvirt.py. 
+      # libxml2Python is a dependency of libvirt.py.
       libvirt libxml2Python urlgrabber
     ];
 
   buildInputs =
-    [ pythonPackages.python 
+    [ pythonPackages.python
       pythonPackages.wrapPython
       pythonPackages.mox
       intltool
@@ -38,7 +38,7 @@ stdenv.mkDerivation rec {
 
   meta = {
     homepage = http://virt-manager.org;
-    license = "GPLv2+";
+    license = stdenv.lib.licenses.gpl2Plus;
     maintainers = with stdenv.lib.maintainers; [qknight];
     description = "Command line tool which provides an easy way to provision operating systems into virtual machines";
   };

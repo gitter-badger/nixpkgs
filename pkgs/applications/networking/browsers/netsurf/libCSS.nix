@@ -10,10 +10,10 @@ stdenv.mkDerivation {
   installPhase = "make PREFIX=$out install";
   buildInputs = [pkgconfig libParserUtils libwapcaplet];
 
-  meta = { 
+  meta = {
     description = "libCSS is a CSS parser and selection engine, written in C"; # used by netsurf
     homepage = http://www.netsurf-browser.org/projects/libcss/;
-    license = "MIT";
+    license = stdenv.lib.licenses.mit;
     maintainers = [args.lib.maintainers.marcweber];
     platforms = args.lib.platforms.linux;
   };

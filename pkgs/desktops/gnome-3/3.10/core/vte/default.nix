@@ -5,7 +5,7 @@ stdenv.mkDerivation rec {
   versionMajor = "0.35";
   versionMinor = "90";
   moduleName   = "vte";
-  
+
   name = "${moduleName}-${versionMajor}.${versionMinor}";
 
   src = fetchurl {
@@ -28,7 +28,7 @@ stdenv.mkDerivation rec {
       character set conversion, as well as emulating any terminal known to
       the system's terminfo database.
     '';
-    license = "LGPLv2";
+    license = stdenv.lib.licenses.lgpl2;
     maintainers = with stdenv.lib.maintainers; [ astsmtl antono ];
     platforms = with stdenv.lib.platforms; linux;
   };

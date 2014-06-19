@@ -6,7 +6,7 @@
 
 let
 
-  perldeps = with perlPackages; 
+  perldeps = with perlPackages;
     [ CatalystDevel
       CatalystPluginSessionStoreFastMmap
       CatalystPluginStackTrace
@@ -32,7 +32,7 @@ let
       nixPerl
     ];
 
-  version = "0.1pre27592"; 
+  version = "0.1pre27592";
 
 in
 
@@ -67,7 +67,7 @@ stdenv.mkDerivation {
   meta = {
     description = "Hydra, the Nix-based continuous integration system";
     homepage = http://nixos.org/hydra/;
-    license = "GPLv3+";
+    license = stdenv.lib.licenses.gpl3Plus;
     platforms = stdenv.lib.platforms.linux;
   };
 }

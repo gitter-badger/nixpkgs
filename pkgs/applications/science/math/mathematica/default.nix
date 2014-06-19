@@ -29,7 +29,7 @@ stdenv.mkDerivation rec {
 
   src = requireFile rec {
     name = "Mathematica_9.0.0_LINUX.sh";
-    message = '' 
+    message = ''
       This nix expression requires that Mathematica_9.0.0_LINUX.sh is
       already part of the store. Find the file on your Mathematica CD
       and add it to the nix store with nix-store --add-fixed sha256 <FILE>.
@@ -119,6 +119,6 @@ stdenv.mkDerivation rec {
   meta = {
     description = "Wolfram Mathematica computational software system";
     homepage = "http://www.wolfram.com/mathematica/";
-    license = "unfree";
+    license = stdenv.lib.licenses.unfree;
   };
 }

@@ -6,7 +6,7 @@ assert stdenv.system == "i686-linux" || stdenv.system == "x86_64-linux";
 
 stdenv.mkDerivation rec {
   name = "sublimetext-2.0.2";
-  src = 
+  src =
     if stdenv.system == "i686-linux" then
       fetchurl {
         name = "sublimetext-2.0.2.tar.bz2";
@@ -35,6 +35,6 @@ stdenv.mkDerivation rec {
 
   meta = {
     description = "Sophisticated text editor for code, markup and prose";
-    license = "unfree";
+    license = stdenv.lib.licenses.unfree;
   };
 }

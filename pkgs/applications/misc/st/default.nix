@@ -5,7 +5,7 @@ with stdenv.lib;
 
 stdenv.mkDerivation rec {
   name = "st-0.4.1";
-  
+
   src = fetchurl {
     url = "http://dl.suckless.org/st/${name}.tar.gz";
     sha256 = "0cdzwbm5fxrwz8ryxkh90d3vwx54wjyywgj28ymsb5fdv3396bzf";
@@ -13,7 +13,7 @@ stdenv.mkDerivation rec {
 
   configFile = optionalString (conf!=null) (writeText "config.def.h" conf);
   preBuild = optionalString (conf!=null) "cp ${configFile} config.def.h";
-  
+
   buildInputs = [ pkgconfig libX11 ncurses libXext libXft fontconfig ];
 
   NIX_LDFLAGS = "-lfontconfig";
@@ -21,10 +21,10 @@ stdenv.mkDerivation rec {
   installPhase = ''
     TERMINFO=$out/share/terminfo make install PREFIX=$out
   '';
-    
+
   meta = {
     homepage = http://st.suckless.org/;
-    license = "MIT";
+    license = stdenv.lib.licenses.mit;
     maintainers = with maintainers; [viric];
     platforms = with platforms; linux;
   };

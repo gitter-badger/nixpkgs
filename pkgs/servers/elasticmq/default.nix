@@ -14,7 +14,7 @@ stdenv.mkDerivation rec {
     ''
       mkdir -p $out/bin
       cp -prd lib conf $out/
-      
+
       cp bin/run.sh $out/bin/elasticmq
       substituteInPlace $out/bin/elasticmq --replace '-DBASEDIR=$BASEDIR' '-DBASEDIR=''${ELASTICMQ_DATA_PREFIX:-.}'
 
@@ -34,6 +34,6 @@ stdenv.mkDerivation rec {
         $ELASTICMQ_DATA_PREFIX/conf/Default.scala.  You can use the
         Default.scala included in the distribution as a template.
       '';
-    license = "APLv2";
+    license = stdenv.lib.licenses.asl20;
   };
 }

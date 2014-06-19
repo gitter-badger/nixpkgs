@@ -4,7 +4,7 @@
 , libtiff, freetype, mjpegtools, x264, gettext, openexr
 , libXext, libXxf86vm, libXv, libXi, libX11, xextproto, libtheora, libpng
 , libdv, libuuid, file, nasm, perl }:
-        
+
 stdenv.mkDerivation {
   name = "cinelerra-git";
 
@@ -40,10 +40,10 @@ stdenv.mkDerivation {
       perl
     ];
 
-  meta = { 
+  meta = {
     description = "Cinelerra - Video Editor";
     homepage = http://www.cinelerra.org;
     maintainers = [ stdenv.lib.maintainers.marcweber ];
-    license = "GPLv2";
+    license = stdenv.lib.licenses.gpl2;
   };
 }

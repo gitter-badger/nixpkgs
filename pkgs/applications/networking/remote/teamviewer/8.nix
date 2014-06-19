@@ -4,7 +4,7 @@
 let
   topath = "${wineUnstable}/bin";
 
-  toldpath = stdenv.lib.concatStringsSep ":" (map (x: "${x}/lib") 
+  toldpath = stdenv.lib.concatStringsSep ":" (map (x: "${x}/lib")
     [ stdenv.gcc.gcc libX11 libXtst libXext libXdamage libXfixes wineUnstable ]);
 in
 stdenv.mkDerivation {
@@ -41,7 +41,7 @@ stdenv.mkDerivation {
 
   meta = {
     homepage = "http://www.teamviewer.com";
-    license = "unfree";
+    license = stdenv.lib.licenses.unfree;
     description = "Desktop sharing application, providing remote support and online meetings";
   };
 }

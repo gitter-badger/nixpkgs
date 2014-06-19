@@ -2,7 +2,7 @@
 
 stdenv.mkDerivation rec {
   name = "mygui-svn-4141";
-  
+
   src = fetchsvn {
     url = https://my-gui.svn.sourceforge.net/svnroot/my-gui/trunk;
     rev = 4141;
@@ -22,6 +22,6 @@ stdenv.mkDerivation rec {
   meta = {
     homepage = http://mygui.info/;
     description = "Library for creating GUIs for games and 3D applications";
-    license = "LGPLv3+";
+    license = stdenv.lib.licenses.lgpl3Plus;
   };
 }

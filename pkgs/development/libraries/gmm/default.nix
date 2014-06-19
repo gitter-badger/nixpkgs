@@ -8,9 +8,9 @@ stdenv.mkDerivation {
     sha256 = "1lc34w68s0rhii6caklvq2pyc3jaa4g6kza948ya8ha6rr8d1ypp";
   };
 
-  meta = { 
+  meta = {
     description = "Generic C++ template library for sparse, dense and skyline matrices";
     homepage = http://home.gna.org/getfem/gmm_intro.html;
-    license = "LGLP2.1"; # or later
+    license = stdenv.lib.licenses.lgpl21Plus;
   };
 }

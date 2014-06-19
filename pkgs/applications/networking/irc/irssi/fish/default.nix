@@ -2,7 +2,7 @@
 
 stdenv.mkDerivation rec {
   name = "fish-irssi-20130413-e98156bebd";
-  
+
   src = fetchurl {
     url = https://github.com/falsovsky/FiSH-irssi/tarball/e98156bebd;
     name = "${name}.tar.gz";
@@ -20,12 +20,12 @@ stdenv.mkDerivation rec {
     ensureDir $out/lib/irssi/modules
     cp src/.libs/libfish.so $out/lib/irssi/modules
   '';
-  
+
   buildInputs = [ gmp automake autoconf libtool openssl glib pkgconfig ];
-  
+
   meta = {
     homepage = https://github.com/falsovsky/FiSH-irssi;
-    license = "unfree"; # I can't find any mention of license
+    license = stdenv.lib.licenses.unfree; # I can't find any mention of license
     maintainers = with stdenv.lib.maintainers; [viric];
   };
 }

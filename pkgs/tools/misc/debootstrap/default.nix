@@ -27,7 +27,7 @@ let
       chmod +x $t
     '';
   };
-  
+
 in
 
 stdenv.mkDerivation {
@@ -102,10 +102,10 @@ stdenv.mkDerivation {
     inherit makedev;
   };
 
-  meta = { 
+  meta = {
     description = "Tool to create a Debian system in a chroot";
     homepage = http://packages.debian.org/de/lenny/debootstrap; # http://code.erisian.com.au/Wiki/debootstrap
-    license = "GPL-2"; # gentoo says so.. ?
+    license = stdenv.lib.licenses.gpl2; # gentoo says so.. ?
     maintainers = [ stdenv.lib.maintainers.marcweber ];
     platforms = stdenv.lib.platforms.linux;
   };

@@ -3,12 +3,12 @@
 let
   ffmpeg = stdenv.mkDerivation rec {
     name = "ffmpeg-1.1.3";
-    
+
     src = fetchurl {
       url = "http://www.ffmpeg.org/releases/${name}.tar.bz2";
       sha256 = "03s1zsprz5p6gjgwwqcf7b6cvzwwid6l8k7bamx9i0f1iwkgdm0j";
     };
-    
+
     configureFlags = [
       "--arch=arm"
       "--cpu=arm1176jzf-s"
@@ -42,7 +42,7 @@ let
     ];
 
     enableParallelBuilding = true;
-      
+
     crossAttrs = {
       dontSetConfigureCross = true;
       configureFlags = configureFlags ++ [
@@ -79,6 +79,6 @@ stdenv.mkDerivation rec {
   meta = {
     homepage = https://github.com/huceke/omxplayer;
     description = "Commandline OMX player for the Raspberry Pi";
-    license = "GPLv2+";
+    license = stdenv.lib.licenses.gpl2Plus;
   };
 }

@@ -11,12 +11,12 @@ in
 
 stdenv.mkDerivation rec {
   name = "awesome-${version}";
- 
+
   src = fetchurl {
     url = "http://awesome.naquadah.org/download/awesome-${version}.tar.xz";
     sha256 = "0jhsgb8wdzpfmdyl9fxp2w6app7l6zl8b513z3ff513nvdlxj5hr";
   };
- 
+
   buildInputs = [ cmake gperf imagemagick pkgconfig lua glib cairo pango
     imlib2 libxcb libxdg_basedir xcbutil xcbutilimage xcbutilkeysyms xcbutilwm
     libstartup_notification libev libpthreadstubs libXau libXdmcp pixman doxygen
@@ -39,11 +39,11 @@ stdenv.mkDerivation rec {
       --replace "set(AWE_MAN_LANGS it es fr de ru)" \
                 "set(AWE_MAN_LANGS it es fr de)"
   '';
- 
+
   meta = {
     homepage = http://awesome.naquadah.org/;
     description = "Highly configurable, dynamic window manager for X";
-    license = "GPLv2+";
+    license = stdenv.lib.licenses.gpl2Plus;
     maintainers = with stdenv.lib.maintainers; [viric];
     platforms = with stdenv.lib.platforms; linux;
   };

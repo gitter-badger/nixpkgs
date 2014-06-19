@@ -39,10 +39,10 @@ rec {
     installPhase = "make PREFIX=$out install";
     buildInputs = [pkgconfig libParserUtils];
 
-    meta = { 
+    meta = {
       description = "HTML5 compliant parsing library, written in C";
       homepage = http://www.netsurf-browser.org/projects/hubbub/;
-      license = "MIT";
+      license = stdenv.lib.licenses.mit;
       maintainers = [lib.maintainers.marcweber];
       platforms = lib.platforms.linux;
     };
@@ -60,10 +60,10 @@ rec {
     installPhase = "make PREFIX=$out install";
     buildInputs = [pkgconfig];
 
-    meta = { 
+    meta = {
       description = "implementation of the W3C DOM, written in C";
       homepage = http://www.netsurf-browser.org/projects/hubbub/;
-      license = "MIT";
+      license = stdenv.lib.licenses.mit;
       maintainers = [lib.maintainers.marcweber];
       platforms = lib.platforms.linux;
     };
@@ -71,7 +71,7 @@ rec {
   */
 
   netsurfHaru = import ./haru.nix {
-    inherit fetchurl sourceFromHead stdenv lib zlib libpng; 
+    inherit fetchurl sourceFromHead stdenv lib zlib libpng;
   };
 
   browser = import ./netsurf.nix {

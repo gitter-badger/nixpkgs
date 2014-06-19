@@ -13,6 +13,6 @@ stdenv.mkDerivation {
 
   meta = {
     description = "Enterprise-class stacked cryptographic filesystem";
-    license = "GPLv2+";
+    license = stdenv.lib.licenses.gpl2Plus;
   };
 }

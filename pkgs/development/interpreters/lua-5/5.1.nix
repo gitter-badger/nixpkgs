@@ -20,7 +20,7 @@ stdenv.mkDerivation rec {
 
   patches = if stdenv.isDarwin then [ ./5.1.darwin.patch ] else [ dsoPatch ];
 
-  configurePhase = 
+  configurePhase =
     if stdenv.isDarwin
     then ''
     makeFlagsArray=( INSTALL_TOP=$out INSTALL_MAN=$out/share/man/man1 PLAT=macosx CFLAGS="-DLUA_USE_LINUX -fno-common -O2" LDLAGS="" )
@@ -48,7 +48,7 @@ stdenv.mkDerivation rec {
       management with incremental garbage collection, making it ideal
       for configuration, scripting, and rapid prototyping.
     '';
-    license = "MIT";
+    license = stdenv.lib.licenses.mit;
     platforms = stdenv.lib.platforms.unix;
     maintainers = [ stdenv.lib.maintainers.simons ];
   };

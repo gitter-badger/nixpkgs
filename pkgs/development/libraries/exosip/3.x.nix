@@ -9,9 +9,9 @@ stdenv.mkDerivation rec {
   name = "libexosip2-${version}";
 
   buildInputs = [ libosip openssl pkgconfig ];
-      
+
   meta = {
-    license = "GPLv2+";
+    license = stdenv.lib.licenses.gpl2Plus;
     description = "Library that hides the complexity of using the SIP protocol";
   };
 }

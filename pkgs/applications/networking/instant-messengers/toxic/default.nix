@@ -22,9 +22,9 @@ stdenv.mkDerivation rec {
 
   configureFlags = [
     "--with-libtoxcore-headers=${libtoxcore}/include"
-    "--with-libtoxcore-libs=${libtoxcore}/lib" 
+    "--with-libtoxcore-libs=${libtoxcore}/lib"
     "--with-libsodium-headers=${libtoxcore}/include"
-    "--with-libsodium-libs=${libtoxcore}/lib" 
+    "--with-libsodium-libs=${libtoxcore}/lib"
   ];
 
   buildInputs = [ autoconf libtool automake libtoxcore libsodium ncurses pkgconfig ];
@@ -33,7 +33,7 @@ stdenv.mkDerivation rec {
 
   meta = {
     description = "Reference CLI for Tox";
-    license = "GPLv3+";
+    license = stdenv.lib.licenses.gpl3Plus;
     maintainers = with stdenv.lib.maintainers; [ viric ];
     platforms = stdenv.lib.platforms.all;
   };

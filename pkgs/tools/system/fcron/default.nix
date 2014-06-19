@@ -26,9 +26,9 @@ stdenv.mkDerivation rec {
       "--with-rootgroup=root"
       "--disable-checks"
     ];
-    
+
   installTargets = "install-staged"; # install does also try to change permissions of /etc/* files
-  
+
   preConfigure =
     ''
       sed -i 's@/usr/bin/env perl@${perl}/bin/perl@g' configure script/*
@@ -44,15 +44,15 @@ stdenv.mkDerivation rec {
 
   patchPhase =
     ''
-      # don't try to create /etc/fcron.{allow,deny,conf} 
+      # don't try to create /etc/fcron.{allow,deny,conf}
       sed -i -e 's@test -f $(DESTDIR)$(ETC)/fcron.conf @ # @' \
              -e 's@if test ! -f $(DESTDIR)$(ETC)/fcron.allow@ # @' Makefile.in
     '';
 
-  meta = { 
+  meta = {
     description="A command scheduler with extended capabilities over cron and anacron";
     homepage = http://fcron.free.fr;
-    license = "GPLv2";
+    license = stdenv.lib.licenses.gpl2;
     platforms = stdenv.lib.platforms.all;
   };
 }

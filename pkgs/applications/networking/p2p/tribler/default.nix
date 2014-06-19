@@ -24,10 +24,10 @@ stdenv.mkDerivation {
       substituteInPlace Tribler/Core/NATFirewall/guessip.py \
           --replace /bin/netstat ${nettools}/bin/netstat \
           --replace /sbin/ifconfig ${nettools}/sbin/ifconfig
-    
+
       # Nasty hack; call wrapPythonPrograms to set program_PYTHONPATH.
       wrapPythonPrograms
-      
+
       mkdir -p $out/share/tribler
       cp -prvd Tribler $out/share/tribler/
 
@@ -44,6 +44,6 @@ stdenv.mkDerivation {
   meta = {
     homepage = http://www.tribler.org/;
     description = "A completely decentralised P2P filesharing client based on the Bittorrent protocol";
-    license = "LGPLv2.1";
+    license = stdenv.lib.licenses.lgpl21;
   };
 }

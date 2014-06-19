@@ -8,9 +8,9 @@ stdenv.mkDerivation {
     sha256 = "0v8gbf9si4sd06199f8lfmrsbvi6i0hxphd34kyvsj6g2kkkg10s";
   };
 
-  meta = { 
+  meta = {
     description = "Image pixel format conversion library";
     homepage = http://gegl.org/babl/;
-    license = "GPL3";
+    license = stdenv.lib.licenses.gpl3;
   };
 }

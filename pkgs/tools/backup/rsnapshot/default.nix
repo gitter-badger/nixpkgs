@@ -6,12 +6,12 @@ let patch = writeText "rsnapshot-config.patch" ''
 +++ rsnapshot-program.pl	2013-10-05 20:31:42.496193633 +0200
 @@ -383,7 +383,7 @@
  	}
- 	
+
  	# set global variable
 -	$config_file = $default_config_file;
 +	$config_file = '${configFile}';
  }
- 
+
  # accepts no args
 '';
 in
@@ -33,6 +33,6 @@ stdenv.mkDerivation rec {
   meta = {
     description = "A filesystem snapshot utility for making backups of local and remote systems";
     homepage = http://rsnapshot.org/;
-    license = "GPLv2+";
+    license = stdenv.lib.licenses.gpl2Plus;
   };
 }

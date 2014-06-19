@@ -2,7 +2,7 @@
 
 stdenv.mkDerivation rec {
   name = "intel-g4asm-20110416";
-  
+
   src = fetchgit {
     url = http://anongit.freedesktop.org/git/xorg/app/intel-gen4asm.git;
     rev = "2450ff752642d116eb789a35393b9828133c7d31";
@@ -15,7 +15,7 @@ stdenv.mkDerivation rec {
 
   meta = {
     homepage = http://cgit.freedesktop.org/xorg/app/intel-gen4asm/;
-    license = "MIT";
+    license = stdenv.lib.licenses.mit;
     description = "Program to compile an assembly language for the Intel 965 Express Chipset";
   };
 }

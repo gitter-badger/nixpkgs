@@ -18,8 +18,8 @@ stdenv.mkDerivation {
     sha256 = "f896fa101a05d81b85af8122fe1c2809008a5e5fdca00f9ceeb7eec356369e3a";
   };
 
-  configureFlags = [ 
-     "--prefix=$out" 
+  configureFlags = [
+     "--prefix=$out"
      "--libdir=$out/lib/ocaml/${ocaml_version}/site-lib/mysql"
   ];
 
@@ -41,7 +41,7 @@ stdenv.mkDerivation {
   meta = {
     homepage = http://ocaml-mysql.forge.ocamlcore.org;
     description = "Bindings for interacting with MySQL databases from ocaml";
-    license = "LGPLv2.1+";
+    license = stdenv.lib.licenses.lgpl21Plus;
     maintainers = [ stdenv.lib.maintainers.roconnor ];
   };
 }

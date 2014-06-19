@@ -25,13 +25,13 @@ stdenv.mkDerivation {
     yes Y | LOCALBASE=/ python config.py
   '';
 
-  buildPhase = "python setup.py build"; 
+  buildPhase = "python setup.py build";
 
   installPhase = "python setup.py install --prefix=$out";
 
   meta = {
     description = "Python library for games";
     homepage = "http://www.pygame.org/";
-    license = "LGPLv2.1+";
+    license = stdenv.lib.licenses.lgpl21Plus;
   };
 }

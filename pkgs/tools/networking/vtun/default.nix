@@ -8,7 +8,7 @@ stdenv.mkDerivation {
   };
 
   patchPhase = ''
-    sed -i -e 's/-m 755//' -e 's/-o root -g 0//' Makefile.in 
+    sed -i -e 's/-m 755//' -e 's/-o root -g 0//' Makefile.in
   '';
   buildInputs = [ lzo openssl zlib yacc flex ];
 
@@ -17,9 +17,9 @@ stdenv.mkDerivation {
     --with-ssl-headers=${openssl}/include/openssl
     --with-blowfish-headers=${openssl}/include/openssl'';
 
-  meta = { 
+  meta = {
       description="Virtual Tunnels over TCP/IP with traffic shaping, compression and encryption";
       homepage="http://vtun.sourceforge.net/";
-      license = "GPLv2";
+      license = stdenv.lib.licenses.gpl2;
   };
 }

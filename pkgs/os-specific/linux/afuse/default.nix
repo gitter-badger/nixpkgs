@@ -10,12 +10,11 @@ stdenv.mkDerivation {
 
   buildInputs = [ pkgconfig fuse ];
 
-  meta = { 
+  meta = {
     description = "Automounter in userspace";
     homepage = http://sourceforge.net/projects/afuse;
-    license = "GPL-v2";
+    license = stdenv.lib.licenses.gpl2;
     maintainers = [ stdenv.lib.maintainers.marcweber ];
     platforms = stdenv.lib.platforms.linux;
   };
 }
-

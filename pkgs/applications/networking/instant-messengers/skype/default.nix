@@ -67,6 +67,6 @@ stdenv.mkDerivation rec {
   meta = {
     description = "A proprietary voice-over-IP (VoIP) client";
     homepage = http://www.skype.com/;
-    license = "unfree";
+    license = stdenv.lib.licenses.unfree;
   };
 }

@@ -10,10 +10,10 @@ stdenv.mkDerivation {
   installPhase = "make PREFIX=$out install";
   buildInputs = [pkgconfig];
 
-  meta = { 
+  meta = {
     description = "LibParserUtils is a library for building efficient parsers, written in C";
     homepage = http://www.netsurf-browser.org/projects/libparserutils/;
-    license = "MIT";
+    license = stdenv.lib.licenses.mit;
     maintainers = [args.lib.maintainers.marcweber];
     platforms = args.lib.platforms.linux;
     broken = true;

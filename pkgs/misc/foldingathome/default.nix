@@ -22,7 +22,7 @@ stdenv.mkDerivation {
   # be considered a gcroot.
   installPhase = ''
     BINFILES="fah6 mpiexec";
-    for a in $BINFILES; do 
+    for a in $BINFILES; do
       patchelf --set-interpreter $(cat $NIX_GCC/nix-support/dynamic-linker) $a
     done
     mkdir -p $out/bin
@@ -32,6 +32,6 @@ stdenv.mkDerivation {
   meta = {
     homepage = http://folding.stanford.edu/;
     description = "Folding@home distributed computing client";
-    license = "unfree";
+    license = stdenv.lib.licenses.unfree;
   };
 }
