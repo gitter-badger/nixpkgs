@@ -8,3 +8,5 @@ manager. Nixpkgs also includes [NixOS](http://nixos.org/nixos/) linux distributi
 * [Tests](http://hydra.nixos.org/job/nixos/trunk-combined/tested#tabs-constituents)
 * [Mailing list](http://lists.science.uu.nl/mailman/listinfo/nix-dev)
 * [IRC - #nixos on freenode.net](irc://irc.freenode.net/#nixos)
+
+[![Gitter](https://badges.gitter.im/Join Chat.svg)](https://gitter.im/davidrusu/nixpkgs?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
